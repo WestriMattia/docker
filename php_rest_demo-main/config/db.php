@@ -3,10 +3,10 @@
 class Db
 {
 
-    private $host = "db_name";
+    private $host = "localhost:";
     private $db_name = "test";
     private $username = "root";
-    private $password = "ciccio";
+    private $password = "vestri";
     public $conn;
 
     // get the database connection

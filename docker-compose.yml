@@ -14,7 +14,7 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=ciccio
+      - MYSQL_ROOT_PASSWORD=vestri
   mio_phpmyadmin:
     image: phpmyadmin:latest
     ports:
