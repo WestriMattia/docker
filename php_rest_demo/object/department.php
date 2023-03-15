@@ -14,6 +14,8 @@ class Department
     // object properties
     public $id;
     public $name;
+    public $age;
+    public $level;
 
     // constructor with $db as database connection
     public function __construct($db)
@@ -44,14 +46,20 @@ class Department
         $query = "INSERT INTO
                 " . $this->table_name . "
             SET
-                dept_name=:name";
+                dept_name=:name,
+                age=:age,
+                level=:level";
         // prepare query
         $stmt = $this->conn->prepare($query);
         // sanitize
-        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->name = htmlspecialchars(strip_tags($this->name))
+        $this->age = htmlspecialchars(strip_tags($this->age));
+        $this->level = htmlspecialchars(strip_tags($this->level));
 
         // bind values
         $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":age", $this->age);
+        $stmt->bindParam(":level", $this->level);
 
         // execute query
         if ($stmt->execute()) {
@@ -69,6 +77,8 @@ class Department
                 " . $this->table_name . "
             SET
                 dept_name = :name
+                age = :age,
+                level = :level
             WHERE
                 dept_id = :id";
 
@@ -77,10 +87,14 @@ class Department
 
         // sanitize
         $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->level = htmlspecialchars(strip_tags($this->level));
+        $this->age = htmlspecialchars(strip_tags($this->age));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         // bind new values
         $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':age', $this->age);
+        $stmt->bindParam(':level', $this->level);
         $stmt->bindParam(':id', $this->id);
 
         // execute the query

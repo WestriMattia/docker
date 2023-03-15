@@ -31,6 +31,8 @@ if ($num > 0) {
         extract($row);
         $department_item = array(
             "id" => $row['dept_id'],
+            "nickname" => $row['nickname'],
+            "age" => $row['age'],
             "name" => $row['dept_name']
         );
         array_push($department_arr["records"], $department_item);

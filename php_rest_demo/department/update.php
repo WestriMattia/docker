@@ -24,6 +24,8 @@ $data = json_decode(file_get_contents("php://input", true));
 $department->id = $data->id;
 // set department property value
 $department->name = $data->name;
+$gamer->level = $data->level;
+$gamer->age = $data->age;
 
 // update the department
 if ($department->update()) {

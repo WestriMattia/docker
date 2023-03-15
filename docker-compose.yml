@@ -6,7 +6,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./php_rest_demo-main:/var/www/html/rest
+      - ./php_rest_demo:/var/www/html/rest
   db_name:
     image: mysql:5.7
     ports:
